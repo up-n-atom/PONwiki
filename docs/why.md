@@ -99,12 +99,12 @@ Bypassing puts full network control at your edge, enabling improvements in sever
   [OpenVPN]: https://openvpn.net/
 
 - **Unrestricted Self-hosting**  
-  Host services like [Plex], [Home Assistant], or [Nextcloud] using **DMZs and Reverse Proxies**
+  Host services like [Home Assistant], [Nextcloud], or [Jellyfin] using **DMZs and Reverse Proxies**
   ([HAProxy]/[Traefik]).
 
-  [Plex]: https://plex.tv/
   [Home Assistant]: https://www.home-assistant.io/
   [Nextcloud]: https://nextcloud.com/
+  [Jellyfin]: https://jellyfin.org/
   [HAProxy]: https://www.haproxy.org/
   [Traefik]: https://traefik.io/
 
