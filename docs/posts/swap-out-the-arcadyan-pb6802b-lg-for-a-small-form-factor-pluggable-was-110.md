@@ -21,6 +21,8 @@ ont: Arcadyan PB6802B-LG
 
 !!! abstract "This is strictly for the form-factor as they're all SFU (bridge-only) ONTs"
 
+![Swap Arcadyan PB6802B-LG](swap-out-the-arcadyan-pb6802b-lg-for-a-small-form-factor-pluggable-was-110/swap_pb6802b-lg.webp){ class="nolightbox" }
+
 <!-- more -->
 <!-- nocont -->
 
