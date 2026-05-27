@@ -221,8 +221,9 @@ the Livebox 7, which uses CWMP[^2]. However, it is recommended to keep somewhat 
 | SAHEOFR030502      | SAHEOFR030602      |
 | SAHEOFR070202      | SAHEOFR919117      |
 | SAHEOFR010117      | SAHEOFR070101      |
-| SAHEOFR010113      |                    |
+| SAHEOFR010113      | SAHEOFR030602      |
 | SAHEOFR010112      |                    |
+| SAHEOFR030102      |                    |
 
 Please help us by contributing new versions via the [8311 Discord community server] or submitting a
 [Pull Request](https://github.com/up-n-atom/8311/pulls) on GitHub.
