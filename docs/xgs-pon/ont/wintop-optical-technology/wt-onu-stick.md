@@ -47,8 +47,13 @@ tags:
 <tr markdown>
 <td markdown>[Banana PI](https://forum.banana-pi.org)</td>
 <td markdown>[BPI-XGS-PON-ONU](https://www.bpi-shop.com/products/xgs-pononustick.html)</td>
-<td markdown>:globe_with_meridians: [AliExpress](https://s.click.aliexpress.com/e/_mKeu0DP) <small class="affiliate"></small></td>
+<td markdown>:globe_with_meridians: [AliExpress](https://s.click.aliexpress.com/e/_mM1jMpt) <small class="affiliate"></small></td>
 <td markdown>Unknown</td>
+<tr markdown>
+<td markdown>[Yunvo](https://www.yunvoptic.com/)</td>
+<td markdown>YV-XGS-Stick-T</td>
+<td markdown>:globe_with_meridians: [Alibaba](https://www.alibaba.com/product-detail/Yunvo-10G-XGSPON-ONT-Stick-SC_10000041298376.html)</td>
+<td markdown>8311<sup>2</sup></td>
 </tr>
 </tbody>
 <tfoot markdown>
