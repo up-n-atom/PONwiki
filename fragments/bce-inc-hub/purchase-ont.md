@@ -1,7 +1,7 @@
-## Purchase WAS-110/X-ONU-SFPP ONT { #purchase-was-110-x-onu-sfpp-ont }
+## Purchase WAS-110/X-ONU-SFPP/WT-ONU-STICK ONT { #purchase-was-110-x-onu-sfpp-ont }
 
-The [WAS-110] and [X-ONU-SFPP] are available from select resellers worldwide; purchase at your discretion. We assume no
-responsibility or liability for the listed resellers.
+The [WAS-110], [X-ONU-SFPP], and [WT-ONU-STICK] are available from select resellers worldwide; purchase at your
+discretion. We assume no responsibility or liability for the listed resellers.
 
 ??? info "Purchase SC/APC variant; if unavailable, add an SC/APC (female) to SC/UPC (male) 0dB attenuator for conversion."
     Bell and most North American ISPs terminate their fiber at the ONT using SC/APC (green) connectors.
@@ -17,9 +17,13 @@ responsibility or liability for the listed resellers.
 
      [Value-Added Resellers](../xgs-pon/ont/bfw-solutions/was-110.md#value-added-resellers)
 
--    __X-ONU-SFPP__
+-    __X-ONU-SFPP <small>WAS-110 substitute</small>__
 
      [Value-Added Resellers](../xgs-pon/ont/potron-technology/x-onu-sfpp.md#value-added-resellers)
+
+-    __WT-ONU-STICK <small>X-ONU-SFPP substitute</small>__
+
+     [Value-Added Resellers](../xgs-pon/ont/wintop-optical-technology/wt-onu-stick.md#value-added-resellers)
 
 </div>
 
@@ -35,4 +39,5 @@ responsibility or liability for the listed resellers.
 
   [WAS-110]: ../xgs-pon/ont/bfw-solutions/was-110.md
   [X-ONU-SFPP]: ../xgs-pon/ont/potron-technology/x-onu-sfpp.md
+  [WT-ONU-STICK]: ../xgs-pon/ont/wintop-optical-technology/wt-onu-stick.md
   [XS-010X-Q]: ../xgs-pon/ont/nokia/xs-010x-q.md
