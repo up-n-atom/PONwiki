@@ -1,7 +1,7 @@
-## Purchase WAS-110/X-ONU-SFPP/HLX-SFPX ONT { #purchase-was-110-hlx-sfpx-ont }
+## Purchase ONT { #purchase-was-110-hlx-sfpx-ont }
 
-The [WAS-110] and [HLX-SFPX] are available from select resellers worldwide; purchase at your discretion. We assume no
-responsibility or liability for the listed resellers.
+The [WAS-110], [X-ONU-SFPP], [WT-ONU-STICK], and [HLX-SFPX] are available from select resellers worldwide; purchase at
+your discretion. We assume no responsibility or liability for the listed resellers.
 
 ??? info "Purchase SC/APC variant; if unavailable, add an SC/APC (female) to SC/UPC (male) 0dB attenuator for conversion."
     AT&T and most North American ISPs terminate their fiber at the ONT using SC/APC (green) connectors.
@@ -52,6 +52,10 @@ responsibility or liability for the listed resellers.
 
      :flag_us: [EXEN Shop](https://exen.sh/products/x-onu-sfpp-was-110-alternative?utm_source=pon_wiki) <small class="affiliate"></small>
 
+-    __WT-ONU-STICK <small>X-ONU-SFPP substitute</small>__
+
+     [Value-Added Resellers](../xgs-pon/ont/wintop-optical-technology/wt-onu-stick.md#value-added-resellers)
+
 </div>
 
 !!! tip "Due to ongoing tariffs, prioritize sourcing from domestic stock and sellers."
@@ -74,3 +78,5 @@ responsibility or liability for the listed resellers.
 
   [WAS-110]: ../xgs-pon/ont/bfw-solutions/was-110.md
   [HLX-SFPX]: ../xgs-pon/ont/calix/100-05610.md
+  [X-ONU-SFPP]: ../xgs-pon/ont/potron-technology/x-onu-sfpp.md
+  [WT-ONU-STICK]: ../xgs-pon/ont/wintop-optical-technology/wt-onu-stick.md

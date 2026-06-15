@@ -1,4 +1,4 @@
-## Purchase WAS-110/X-ONU-SFPP/WT-ONU-STICK ONT { #purchase-was-110-x-onu-sfpp-ont }
+## Purchase ONT { #purchase-was-110-x-onu-sfpp-ont }
 
 The [WAS-110], [X-ONU-SFPP], and [WT-ONU-STICK] are available from select resellers worldwide; purchase at your
 discretion. We assume no responsibility or liability for the listed resellers.

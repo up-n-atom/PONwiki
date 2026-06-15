@@ -1,9 +1,9 @@
 ## Purchase Hardware
 
-### WAS-110/X-ONU-SFPP ONT { #purchase-ont }
+### ONT { #purchase-ont }
 
-The [WAS-110] and [X-ONU-SFPP] are available from select resellers worldwide; purchase at your discretion. We assume no
-responsibility or liability for the listed resellers.
+The [WAS-110], [X-ONU-SFPP], and [WT-ONU-STICK] are available from select resellers worldwide; purchase at your
+discretion. We assume no responsibility or liability for the listed resellers.
 
 ??? info "Purchase SC/APC variant"
     Although Virgin Media terminate their fiber at the ONT using LC/APC connectors, purchasing an SC/APC ONT guarantees
@@ -28,10 +28,15 @@ responsibility or liability for the listed resellers.
 
      :flag_gb: [Better Internet](https://store.betterinternet.ltd/products/x-onu-sfpp?ref=pon_wiki) <small class="affiliate"></small>
 
+-    __WT-ONU-STICK <small>X-ONU-SFPP substitute</small>__
+
+     [Value-Added Resellers](../xgs-pon/ont/wintop-optical-technology/wt-onu-stick.md#value-added-resellers)
+
 </div>
 
   [WAS-110]: ../xgs-pon/ont/bfw-solutions/was-110.md
   [X-ONU-SFPP]: ../xgs-pon/ont/potron-technology/x-onu-sfpp.md
+  [WT-ONU-STICK]: ../xgs-pon/ont/wintop-optical-technology/wt-onu-stick.md
 
 ### LC/APC to SC/APC adapter or cable { #purchase-adapter }
 
