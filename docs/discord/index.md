@@ -1,6 +1,5 @@
 ---
 hide:
-  - navigation
   - toc
   - feedback
 ---
@@ -23,11 +22,11 @@ were to become the [Baby Bells], including that of [Bell Canada].
   [Baby Bells]: https://en.wikipedia.org/wiki/Regional_Bell_Operating_Company#Baby-Bell
   [Bell Canada]: https://en.wikipedia.org/wiki/Bell_Canada
 
-&ast; *8311 is an independent community and is not affiliated with, endorsed by, or sponsored by Bell or any Bell‑named entity.*
+*8311 is an independent community and is not affiliated with, endorsed by, or sponsored by Bell or any Bell‑named entity.*
 
 ### Pronunciation
 
-*“eighty‑three eleven”*
+8311 is pronounced *'eighty‑three eleven'*.
 
 ## Rules
 
