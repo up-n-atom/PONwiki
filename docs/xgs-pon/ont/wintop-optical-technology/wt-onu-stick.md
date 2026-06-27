@@ -37,7 +37,7 @@ tags:
 
 ### Bootloader
 
-To access the U-boot console hold ++ESC++ on device hot plug to abort autoboot. At the prompt:
+To access the U-boot console hold ++esc++ on device hot plug to abort autoboot. At the prompt:
 `### Please input uboot password: ###` enter `abc123`.
 
 ## Value-Added Resellers
