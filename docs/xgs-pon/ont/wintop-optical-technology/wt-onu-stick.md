@@ -32,6 +32,14 @@ tags:
 
 {% include 'ont/prx126-architecture.md' %}
 
+
+## Default Credentials
+
+### Bootloader
+
+To access the U-boot console hold ++ESC++ on device hot plug to abort autoboot. At the prompt:
+`### Please input uboot password: ###` enter `abc123`.
+
 ## Value-Added Resellers
 
 <table markdown>
