@@ -32,7 +32,7 @@
     [HALNy] has provided a custom firmware with satisfactory customization for masquerading as the {{ page.meta.ont }}.
     It's available by request from [HALNy] and has been made available for download at:
 
-    <https://active-fw.fibrain.pl/aktywa/MATERIALY/HALNy/HLX-SFPX/FIRMWARE/HLX-SFPX_V7-0-8pt2.zip>
+    <https://active-fw.fibrain.pl/aktywa/MATERIALY/HALNy/TEST/HLX-SFPX_V7-0-8pt2l.zip>
 
     <div class="swiper" markdown>
 
