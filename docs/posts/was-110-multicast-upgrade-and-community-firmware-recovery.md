@@ -165,7 +165,7 @@ Python installation varies by Operating System and has been outlined by the tuto
     curl.exe https://gist.github.com/djGrrr/802c5652d3610d3e0a63243fe1119c56/raw/3d9feef42107232e0ef7f2a4c469a00e915a16d3/multicast_upgrader.py
     ```
 
-The [upgrade script](#upgrade-script) works with the `multicast_update.img` and `multicast_reset.img` files from the
+The [upgrade script](#upgrade-script) works with the `multicast_upgrade.img` and `multicast_reset.img` files from the
 8311 community firmware archive, which you can download at:
 
 <https://github.com/djGrrr/8311-was-110-firmware-builder/releases/latest>
