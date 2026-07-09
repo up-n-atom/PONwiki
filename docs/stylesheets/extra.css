@@ -321,3 +321,12 @@ ol[data-swiper-linked] li.step-flash::before {
 #lb-container {
   background-size: 2.5em 2.5em;
 }
+
+blockquote.tiktok-embed {
+    border-left: none !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    font-style: normal !important;
+}
+

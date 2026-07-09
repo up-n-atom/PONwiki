@@ -7,6 +7,12 @@ hide:
 
 # On the web
 
+## [TikTok](https://www.tiktok.com/)
+
+### June 20, 2026
+
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@secengineer/video/7653352273283697951" data-video-id="7653352273283697951" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@secengineer" href="https://www.tiktok.com/@secengineer?refer=embed">@secengineer</a> This is why I never recommend what I do for my home network to others <a title="secengineer" target="_blank" href="https://www.tiktok.com/tag/secengineer?refer=embed">#secengineer</a> <a title="cybersecurity" target="_blank" href="https://www.tiktok.com/tag/cybersecurity?refer=embed">#cybersecurity</a> #<a title="fortinet" target="_blank" href="https://www.tiktok.com/tag/fortinet?refer=embed">#fortinet</a> <a target="_blank" title="♬ original sound - secengineer" href="https://www.tiktok.com/music/original-sound-7653352263271861022?refer=embed">♬ original sound - secengineer</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
 ## [Youtube](https://www.youtube.com/)
 
 ### April 25, 2026
