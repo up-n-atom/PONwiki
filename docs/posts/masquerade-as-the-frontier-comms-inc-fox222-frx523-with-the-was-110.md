@@ -136,9 +136,11 @@ identifiers are available on the back label of the FOX222 or FRX523, color-coord
 
     !!! note "Registration ID fallback"
         Some OLTs reject the `DEFAULT` Registration ID and the ONT will reach O5.1 but fail to authenticate (no OMCI MIB
-        upload, no T-CONTs or GEM ports provisioned). If this occurs, try an all-zeros Registration ID instead — 22 bytes
-        of `0x00`, i.e. `00000000000000000000000000000000000000000000`. Note that `ONU Authentication Status` may continue
-        to display as `0` even when authentication succeeds; verify by actual throughput rather than the status field.
+        upload, no T-CONTs or GEM ports provisioned). If this occurs, clear the Registration ID.
+
+        ``` sh
+        fwenv_set -8 reg_id_hex
+        ```
 
 3. __Save__ changes and *reboot* from the __System__ menu.
 
