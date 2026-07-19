@@ -16,6 +16,7 @@
     <option value="orange-polska-sa">&#127477;&#127473; Orange Polska S.A.</option>
     <option value="rogers">&#127464;&#127462; Rogers</option>
     <option value="salt-mobile-sa">&#127464;&#127469; Salt Mobile SA</option>
+    <option value="sasktel">&#127467;&#127479; SaskTel</option>
     <option value="sonic">&#127482;&#127480; Sonic</option>
     <option value="telus">&#127464;&#127462; Telus</option>
     <option value="virgin-media">&#127468;&#127463; Virgin Media O2</option>
