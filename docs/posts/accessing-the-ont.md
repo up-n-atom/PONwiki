@@ -449,6 +449,17 @@ graph TD
 
 === ":simple-ubiquiti: UniFi OS"
 
+UniFi OS employs a logical abstraction layer that binds network policies to virtual interfaces (e.g., WAN, LAN) rather
+than physical interfaces (e.g., eth9). Unfortunately, this limits the functionality of the advanced NAT interface
+<https://help.ui.com/hc/en-us/articles/16437942532759-DNAT-SNAT-and-Masquerading-in-UniFi>.
+As a workaround, you must configure these settings via the CLI.
+
+
+UniFi OS utilizes a logical abstraction layer that binds network policy to virtual interfaces
+(e.g., WAN, LAN) rather than physical interfaces (e.g., eth9). This unfortunately limits the ability to use the advanced
+NAT interface <https://help.ui.com/hc/en-us/articles/16437942532759-DNAT-SNAT-and-Masquerading-in-UniFi>. As a limited
+workaround you must use the CLI.
+
     1. Enable SSH by navigating to **OS Settings > Console Settings > Advanced**.
 
         <https://help.ui.com/hc/en-us/articles/204909374-UniFi-Connect-with-Debug-Tools-SSH>
