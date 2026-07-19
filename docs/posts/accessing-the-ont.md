@@ -583,8 +583,6 @@ graph TD
 
 === ":simple-ubiquiti: UniFi OS"
 
-    !!! note "UniFi OS utilizes a logical abstraction layer that binds network policy to virtual interfaces (e.g., WAN, LAN) rather than physical interfaces (e.g., eth9)."
-
     !!! warning "These steps are intended __ONLY__ for DHCP or Static IP WAN connections"
         If your WAN is configured for PPPoE, you cannot use the GUI to create a static route to the physical WAN interface.
 
@@ -598,11 +596,11 @@ graph TD
 
             |                                  |                                   |
             | -------------------------------- | --------------------------------- |
-            |                                  | Static                            |
+            | **Route**                        | Static                            |
             | **Name**                         | WAS-110                           |
             | **Device**                       | Gateway                           |
-            |                                  | Interface                         |
-            |                                  | WAN                               |
+            | **Forward**                      | Interface                         |
+            | **Interface**                    | WAN                               |
             | **Destination**                  | 192.168.11.0/24                   |
 
     === "Network 9.4+"
