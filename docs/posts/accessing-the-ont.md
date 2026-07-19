@@ -588,10 +588,28 @@ graph TD
     !!! warning "These steps are intended __ONLY__ for DHCP or Static IP WAN connections"
         If your WAN is configured for PPPoE, you cannot use the GUI to create a static route to the physical WAN interface.
 
+    === "Network 10.4+"
+
+        1. Set the SFP port as the WAN interface by navigating to
+           **:material-circle-slice-8: Network > :material-cog-outline: Settings > :material-web: Internet**.
+        2. Create a static route by navigating to
+           **:material-circle-slice-8: Network > :material-cog-outline: Settings > Policy Engine > :material-sine-wave: New**,
+           clicking **:material-sine-wave: Create New Route**, applying the settings below, and clicking **Add**.
+
+            |                                  |                                   |
+            | -------------------------------- | --------------------------------- |
+            |                                  | Static                            |
+            | **Name**                         | WAS-110                           |
+            | **Device**                       | Gateway                           |
+            |                                  | Interface                         |
+            |                                  | WAN                               |
+            | **Destination**                  | 192.168.11.0/24                   |
+
     === "Network 9.4+"
 
-        1. Set the SFP port as the WAN interface. This is under **Network > Settings > Internet**.
-        2. Create a static route pointing at the WAN interface. This is under **Settings > Policy Table > Create New Policy > Route**
+        1. Set the SFP port as the WAN interface by navigating to
+           **:material-circle-slice-8: Network > :material-cog-outline: Settings > :material-web: Internet**.
+        2. Create a static route pointing at the WAN interface. This is under **:material-cog-outline: Settings > Policy Table > :material-shield: Create New Policy > Route**
 
             |                                  |                                   |
             | -------------------------------- | --------------------------------- |
@@ -604,8 +622,9 @@ graph TD
 
     === "Network 9.3"
 
-        1. Set the SFP port as the WAN interface. This is under **Network > Settings > Internet**.
-        2. Create a static route pointing at the WAN interface. This is under **Network >  Settings > Policy Engine > Policy-Based Routes > Create Route**
+        1. Set the SFP port as the WAN interface by navigating to
+           **:material-circle-slice-8: Network > :material-cog-outline: Settings > :material-web: Internet**.
+        2. Create a static route pointing at the WAN interface. This is under **:material-circle-slice-8: Network > :material-cog-outline: Settings > Policy Engine > Policy-Based Routes > Create Route**
 
             |                                  |                                   |
             | -------------------------------- | --------------------------------- |
@@ -634,8 +653,9 @@ graph TD
 
         </div>
 
-        1. Set the SFP port as the WAN interface. This is under **Network > Settings > Internet**.
-        2. Create a static route pointing at the WAN interface. This is under **Network > Settings > Routing > Static Routes**
+        1. Set the SFP port as the WAN interface by navigating to
+           **:material-circle-slice-8: Network > :material-cog-outline: Settings > :material-web: Internet**.
+        2. Create a static route pointing at the WAN interface. This is under **:material-circle-slice-8: Network > :material-cog-outline: Settings > :material-routes: Routing > Static Routes**
 
             |                                  |                                   |
             | -------------------------------- | --------------------------------- |
