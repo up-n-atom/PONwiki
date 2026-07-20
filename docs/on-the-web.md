@@ -15,6 +15,12 @@ hide:
 
 ## [Youtube](https://www.youtube.com/)
 
+### July 18, 2026
+
+<div class="video">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/71nUNMZwRCg" title="Bypassing the AT&amp;T Fiber Gateway w/ XGS-PON ONU Stick (Ubiquiti UniFi)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 ### April 25, 2026
 
 <div class="video">
