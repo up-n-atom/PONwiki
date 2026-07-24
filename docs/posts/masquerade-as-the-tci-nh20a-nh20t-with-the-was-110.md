@@ -156,8 +156,8 @@ depiction:
         | Equipment ID               | NH20A                         |                          |
         | Hardware Version           | PRV650AB-S-TS                 |                          |
         | Sync Circuit Pack Version  | :check_mark:                  |                          |
-        | Software Version A         | 3FEARCB1001505                | [Version listing]        |
-        | Software Version B         | 3FEARCB1001505                | [Version listing]        |
+        | Software Version A         | 3FETA203h03703                | [Version listing]        |
+        | Software Version B         | Unknown                       | [Version listing]        |
         | MIB File                   | /etc/mibs/prx300_1U_telus.ini | PPTP                     |
 
     === "NH20T"
@@ -168,8 +168,8 @@ depiction:
         | Equipment ID               | NH20T                         |                          |
         | Hardware Version           | GCNT-K                        |                          |
         | Sync Circuit Pack Version  | :check_mark:                  |                          |
-        | Software Version A         | 3FEARCB1001505                | [Version listing]        |
-        | Software Version B         | 3FEARCB1001505                | [Version listing]        |
+        | Software Version A         | 3FETA203h03703                | [Version listing]        |
+        | Software Version B         | Unknown                       | [Version listing]        |
         | MIB File                   | /etc/mibs/prx300_1U_telus.ini | PPTP                     |
 
 3. __Save__ changes and *reboot* from the __System__ menu.
@@ -251,10 +251,11 @@ the [8311 Discord community server].
 The software version is used as a provisioning attribute by the OLT and must be kept up-to-date with the latest
 version. Otherwise, upon a reboot, the WAS-110 will operate in a fake O5 state until corrected.
 
-| Software Version |
-| ---------------- |
-| 3FEARCB1001505   |
-| 3FEARCB1001307   |
+| OMCI Software Version | FW Software Version |
+| --------------------- | ------------------- |
+| 3FETA203h03703        | 20.3.h.0370.1       |
+| 3FEARCB1001505        |                     |
+| 3FEARCB1001307        |                     |
 
 Please help us by contributing new versions via the
 [8311 Discord community server](https://discord.com/servers/8311-886329492438671420)
