@@ -14,8 +14,11 @@ XMO JSON-RPC and the [xmo-remote-client](#via-xmo-client) described earlier in t
 xmo-remote-client -p <password> get-value --path "Device/DeviceInfo/SoftwareVersion" --path "Device/DeviceInfo/ExternalFirmwareVersion"
 ```
 {% else %}
+
+!!! note "As of firmware version 2.13, the auth encoding algorithm switched from MD5 to SHA-512"
+
 ``` sh
-xmo-remote-client -p <password> -a MD5 get-value --path "Device/DeviceInfo/SoftwareVersion" --path "Device/DeviceInfo/ExternalFirmwareVersion"
+xmo-remote-client -p <password> get-value --path "Device/DeviceInfo/SoftwareVersion" --path "Device/DeviceInfo/ExternalFirmwareVersion"
 ```
 {% endif %}
 
