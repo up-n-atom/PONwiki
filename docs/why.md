@@ -70,7 +70,8 @@ Bypassing puts full network control at your edge, enabling improvements in sever
   Implement advanced **QoS** to eliminate **bufferbloat** and ensure **lower latency**.
 
 - **Digital Privacy**  
-  Prevent ISP logging of browsing habits and metadata via Encrypted DNS (DoH/DoT/DNSCrypt).
+  Prevent ISP logging of browsing habits and metadata using a VPN or prevent DNS hijacking via
+  Encrypted DNS (DoH/DoT/DNSCrypt).
 
 - **Network-Wide Ad-blocking**  
   Strip telemetry and ads at the gateway using [Pi-hole] or [AdGuard Home].
