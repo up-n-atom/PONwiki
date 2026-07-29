@@ -277,6 +277,9 @@ of this guide. If you purchased a pre-flashed [WAS-110] or [X-ONU-SFPP], skip pa
     | Attribute                  | Value                        | Remarks                          |
     | -------------------------- | ---------------------------- | -------------------------------- |
     | PON Serial Number (ONT ID) | SMBS...                      | [PON serial number]              |
+    | Equipment ID               | F@st 5688b                   | Note the space                   |
+    | Hardware Version           | F@st5688b                    |                                  |
+    | Sync Circuit Pack Version  | :check_mark:                 |                                  |
     | Registration ID            | 00000...                     | [PLOAM registration ID]          |
     | MIB File                   | /etc/mibs/prx300_1U.ini      |                                  |
 
@@ -306,6 +309,9 @@ of this guide. If you purchased a pre-flashed [WAS-110] or [X-ONU-SFPP], skip pa
 
     ``` sh
     fwenv_set -8 gpon_sn SMBS... # (1)!
+    fwenv_set -8 equipment_id "F@st 5688b"
+    fwenv_set -8 hw_ver F@st5688b
+    fwenv_set -8 cp_hw_ver_sync 1
     fwenv_set -8 reg_id_hex 00000... # (2)!
     fwenv_set -8 fix_vlans 0
     ```
