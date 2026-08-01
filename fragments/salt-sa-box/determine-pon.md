@@ -34,7 +34,7 @@ Open a terminal and install the open-source XMO client using:
     py -m venv venv
     venv\Scripts\activate
     py -m pip install --upgrade pip
-    pip install https://github.com/up-n-atom/sagemcom-modem-scripts/releases/download/v0.0.10/xmo_remote_client-0.0.10-py3-none-any.whl
+    pip install https://github.com/up-n-atom/sagemcom-modem-scripts/releases/download/v0.0.11/xmo_remote_client-0.0.11-py3-none-any.whl
     ```
 
     1. Verify the installed Python version is >= __3.10__
@@ -46,7 +46,7 @@ Open a terminal and install the open-source XMO client using:
     python3 -m venv .venv
     . .venv/bin/activate
     python3 -m pip install --upgrade pip
-    pip3 install https://github.com/up-n-atom/sagemcom-modem-scripts/releases/download/v0.0.10/xmo_remote_client-0.0.10-py3-none-any.whl
+    pip3 install https://github.com/up-n-atom/sagemcom-modem-scripts/releases/download/v0.0.11/xmo_remote_client-0.0.11-py3-none-any.whl
     ```
 
     1. Verify the installed Python version is >= __3.10__
