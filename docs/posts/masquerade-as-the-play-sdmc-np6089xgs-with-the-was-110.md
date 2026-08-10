@@ -169,8 +169,8 @@ identifiers, is available from the web UI or label of the SDMC NP6089XGS.
     | Equipment ID                     | `NP6089XGS`                 | :check_mark: |                                                    |
     | Hardware Version                 | `NP6089-V1.1`               | :check_mark: | ONU-G version                                      |
     | Sync Circuit Pack Version        | Disabled                    | :check_mark: | Circuit Packs report `HWTC`                        |
-    | Software Version A               | `S07.32.03.021`             | :check_mark: | Inactive image                                     |
-    | Software Version B               | `S07.32.03.055`             | :check_mark: | Active image                                       |
+    | Software Version A               | `S07.32.03.021`             |              | Inactive image                                     |
+    | Software Version B               | `S07.32.03.055`             |              | Active image                                       |
     | Firmware Version Match           | `^(S07\.32\.03\.[0-9]{3})$` |              |                                                    |
     | Override active firmware bank    | `B`                         |              |                                                    |
     | Override committed firmware bank | `B`                         |              |                                                    |
