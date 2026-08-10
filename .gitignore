@@ -13,3 +13,5 @@
 
 # rendered html is ignored
 site
+
+__pycache__
