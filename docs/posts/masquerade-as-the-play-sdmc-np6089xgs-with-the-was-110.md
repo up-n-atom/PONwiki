@@ -82,12 +82,6 @@ Record the base MAC printed on the gateway label or shown in its web interface.
     tcpdump -eni veip0.1 -s0 -vvv -c 8 'udp port 67 or 68'
     ```
 
-    The tested interface path was:
-
-    ``` text
-    veip0.1 -> veip0 -> gpon0.0 -> gpon0 -> gpondef
-    ```
-
 ## Install the 8311 community firmware
 
 As a prerequisite to masquerading as the SDMC NP6089XGS, the 8311 community firmware is recommended and required for the
@@ -273,16 +267,6 @@ Software image 1:             S07.32.03.055, active + committed + valid
 PPTP Ethernet UNI instance:   257 / 0x0101
 ```
 
-### Check Extended VLAN tables
-
-Open:
-
-```text
-https://192.168.11.1/cgi-bin/luci/admin/8311/vlans
-```
-
-A successful profile should expose an Extended VLAN table for instance `257`. The ONT performs this translation from the OMCI-provisioned table. The router should use VLAN `35`
-
 ## Configure the router WAN
 
 Configure the router connected to the replacement ONT as follows:
@@ -374,8 +358,6 @@ DHCP Option 61 must be removed from DHCP requests to receive an ACK from the Pla
 | No Alloc-IDs or data GEMs                                | OLT did not continue provisioning             | Check the VLAN page and OMCI log after ME 287                       |
 | GEMs exist, but no DHCP Offer                            | Wrong router VLAN or WAN MAC                  | VLAN `35`, clone the original Internet service MAC                  |
 | DHCP Offer followed by NAK on the router                 | DHCP Option 61 still present                  | Verify that the WAN DHCP client does not send Option 61             |
-| ONT is reachable only when WAN DHCP is disabled          | Missing management route/address              | Follow [Accessing the ONT](accessing-the-ont.md)                    |
-| Software versions revert or fake O5 appears after reboot | Version strings or bank flags no longer match | Inspect ME 7 instances 0 and 1; review firmware match and overrides |
 
 For general optical, PLOAM, and OMCI diagnostics, follow the [Troubleshoot connectivity issues with the WAS-110 or X-ONU-SFPP](troubleshoot-connectivity-issues-with-the-was-110.md) guide.
 
