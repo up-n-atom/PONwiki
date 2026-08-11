@@ -308,21 +308,21 @@ DHCP Option 61 must be removed from DHCP requests to receive an ACK from the Pla
 
 === ":simple-ubiquiti: UniFi OS"
 
-    The UniFi Network UI does not currently provide a reliable way to express “do not send Option 61”. Entering a blank or a space is not equivalent and may prevent the client from sending a valid request.
+    The UniFi Network UI does not currently provide a reliable way to express "do not send Option 61". Entering a blank or a space is not equivalent and may prevent the client from sending a valid request.
 
     A small wrapper can add BusyBox `udhcpc -C` only for the selected Play WAN interface while leaving all other DHCP clients untouched.
 
     ```sh
-    git clone https://github.com/rxri/ubiquiti-play-dhcp-fix.git /data/play-dhcp-fix
-    cd /data/play-dhcp-fix
-    chmod 755 play-dhcp-fix.sh udhcpc-wrapper.sh
-    sudo ./play-dhcp-fix.sh install
+    git clone https://github.com/rxri/ubiquiti-dhcp-clientid-removal.git /data/dhcp-clientid-removal
+    cd /data/dhcp-clientid-removal
+    chmod 755 dhcp-clientid-removal.sh udhcpc-wrapper.sh
+    sudo ./dhcp-clientid-removal.sh install
     ```
 
     The installer creates its user-editable configuration at:
 
     ```text
-    /data/local/etc/play-dhcp-fix.conf
+    /data/local/etc/dhcp-clientid-removal.conf
     ```
 
     Set `TARGET_INTERFACE` to the VLAN interface used by the Play WAN, for example:
@@ -338,12 +338,12 @@ DHCP Option 61 must be removed from DHCP requests to receive an ACK from the Pla
     A UniFi OS firmware update may restore the original `/usr/bin/busybox-legacy/udhcpc` symlink. After every gateway firmware update, rerun the installation:
 
     ```sh
-    cd /data/play-dhcp-fix
+    cd /data/dhcp-clientid-removal
     git pull --ff-only
-    sudo ./play-dhcp-fix.sh install
+    sudo ./dhcp-clientid-removal.sh install
     ```
 
-    If the repository directory no longer exists, clone it to `/data/play-dhcp-fix` again and repeat the installation.
+    If the repository directory no longer exists, clone it to `/data/dhcp-clientid-removal` again and repeat the installation.
 
     ### Verify the DHCP exchange
 
