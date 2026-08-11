@@ -49,7 +49,30 @@ Follow the [Accessing the ONT](accessing-the-ont.md) guide before continuing.
 
 ## Record the subscriber-specific values
 
-The fixed template below was observed on the tested SDMC model, while the PON serial and MAC addresses belong to the individual subscription.
+<div class="swiper" markdown>
+
+<div class="swiper-slide" step="1" markdown>
+
+![SDMC NP6089XGS Device Information](masquerade-as-the-play-sdmc-np6089xgs-with-the-was-110/np6089xgs_device_information.webp){ loading=lazy }
+
+</div>
+
+<div class="swiper-slide" step="2" markdown>
+
+![SDMC NP6089XGS WAN Information](masquerade-as-the-play-sdmc-np6089xgs-with-the-was-110/np6089xgs_wan_information.webp){ loading=lazy }
+
+</div>
+
+</div>
+
+1. Within a web browser, navigate to
+   <http://192.168.0.1>
+   and sign in to the original SDMC gateway. Then, from **Status**, select **Device Information** and record the
+   **Equipment ID** (**Device Type**),
+   **Software Version**, and **GPON S/N** (**SN**).
+
+2. From **Status**, select **WAN Information** and record the **VLAN ID** shown in the **VLAN** column.
+   Play uses VLAN `35`.
 
 ### PON serial number
 
