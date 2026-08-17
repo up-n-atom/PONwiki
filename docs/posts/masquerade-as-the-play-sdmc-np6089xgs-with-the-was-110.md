@@ -8,8 +8,6 @@ categories:
   - NP6089XGS
   - WAS-110
   - X-ONU-SFPP
-  - UniFi OS
-  - RouterOS
 ---
 
 # Masquerade as the Play SDMC NP6089XGS with the WAS-110 or X-ONU-SFPP
