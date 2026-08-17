@@ -4,7 +4,6 @@ categories:
   - XGS-PON
   - P4 Sp. z o.o. (Play/Iliad Group)
   - Polski Światłowód Otwarty
-  - SDMC
   - NP6089XGS
   - WAS-110
   - X-ONU-SFPP
