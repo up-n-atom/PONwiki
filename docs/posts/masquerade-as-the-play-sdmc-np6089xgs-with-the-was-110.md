@@ -14,6 +14,8 @@ categories:
 
 # Masquerade as the Play SDMC NP6089XGS with the WAS-110 or X-ONU-SFPP
 
+![Bypass Kielbasa](masquerade-as-the-play-sdmc-np6089xgs-with-the-was-110/bypass_np6089xgs.webp){ class="nolightbox" }
+
 <!-- more -->
 <!-- nocont -->
 
