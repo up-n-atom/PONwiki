@@ -236,6 +236,8 @@ present.
         fwenv_set -8 sw_verA 3FE49337BOCK17
         fwenv_set -8 sw_verB 3FE49337AOCK80
         fwenv_set -8 -b fw_match '(3FE[0-9A-Z]{11})$'
+        fwenv_set -8 override_active A
+        fwenv_set -8 override_commit A
         fwenv_set -8 pon_slot 10
         fwenv_set -8 fix_vlans 0
         ```
@@ -256,6 +258,8 @@ present.
         fwenv_set -8 sw_verA 3FE49337AOCK10
         fwenv_set -8 sw_verB 3FE49337AOCK80
         fwenv_set -8 -b fw_match '(3FE[0-9A-Z]{11})$'
+        fwenv_set -8 override_active A
+        fwenv_set -8 override_commit A
         fwenv_set -8 pon_slot 10
         fwenv_set -8 fix_vlans 0
         ```
