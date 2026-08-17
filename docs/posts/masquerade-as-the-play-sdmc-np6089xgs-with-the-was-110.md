@@ -185,23 +185,19 @@ identifiers, is available from the web UI or label of the SDMC NP6089XGS.
     !!! reminder
         ^^Replace^^ the mandatory **PON serial number**, **Software Versions**, and **IP Host MAC Address**.
 
-    | Attribute                        | Value                       | Mandatory    | Remarks                                            |
-    | -------------------------------- | --------------------------- | ------------ | -------------------------------------------------- |
-    | PON Serial Number (ONT ID)       | `SDMCXXXXXXXX`              | :check_mark: | Use the subscriber-specific value                  |
-    | Equipment ID                     | `NP6089XGS`                 | :check_mark: |                                                    |
-    | Hardware Version                 | `NP6089-V1.1`               | :check_mark: | ONU-G version                                      |
-    | Sync Circuit Pack Version        | Disabled                    | :check_mark: | Circuit Packs report `HWTC`                        |
-    | Software Version A               | `S07.32.03.021`             |              | Inactive image                                     |
-    | Software Version B               | `S07.32.03.055`             |              | Active image                                       |
-    | Firmware Version Match           | `^(S07\.32\.03\.[0-9]{3})$` |              |                                                    |
-    | Override active firmware bank    | `B`                         |              |                                                    |
-    | Override committed firmware bank | `B`                         |              |                                                    |
-    | OMCC Version                     | `0xA0`                      | :check_mark: |                                                    |
-    | OMCI Interoperability Mask       | `18`                        |              | Leave at the normal default unless troubleshooting |
-    | Registration ID (HEX)            | `20202020202020202020`      | :check_mark: |                                                    |
-    | MIB File                         | `/etc/mibs/prx300_1U.ini`   | :check_mark: | PPTP i.e. default value                            |
-    | PON Slot                         | `1`                         | :check_mark: | Produces Ethernet UNI instance `0x0101`            |
-    | IP Host MAC Address              | `<BASE-MAC>`                | :check_mark: |                                                    |
+    | Attribute                        | Value                     | Mandatory    | Remarks                                            |
+    | -------------------------------- | ------------------------- | ------------ | -------------------------------------------------- |
+    | PON Serial Number (ONT ID)       | SDMCXXXXXXXX              | :check_mark: | Use the subscriber-specific value                  |
+    | Equipment ID                     | NP6089XGS                 | :check_mark: |                                                    |
+    | Hardware Version                 | NP6089-V1.1               | :check_mark: |                                                    |
+    | Software Version A               | S07.32.03.021             |              | Inactive image                                     |
+    | Software Version B               | S07.32.03.055             |              | Active image                                       |
+    | Override active firmware bank    | B                         |              |                                                    |
+    | Override committed firmware bank | B                         |              |                                                    |
+    | OMCC Version                     | 0xA0                      | :check_mark: |                                                    |
+    | Registration ID (HEX)            | 20202020202020202020      | :check_mark: |                                                    |
+    | MIB File                         | /etc/mibs/prx300_1U.ini   | :check_mark: | PPTP i.e. default value                            |
+    | IP Host MAC Address              | <BASE-MAC>                | :check_mark: |                                                    |
 
 3. From the **8311 Configuration** page, on the **ISP Fixes** tab, disable **Fix VLANs** from the drop-down.
 
@@ -220,25 +216,17 @@ identifiers, is available from the web UI or label of the SDMC NP6089XGS.
     !!! reminder "Highlighted lines are <ins>mandatory</ins>"
         ^^Replace^^ the mandatory **PON serial number**, **Software Versions**, and **IP Host MAC Address**.
 
-    ```sh hl_lines="1 2 11 12"
-    PON_SERIAL='SDMCXXXXXXXX'
-    BASE_MAC='AA:BB:CC:DD:EE:FF'
-
-    fwenv_set -8 gpon_sn "$PON_SERIAL"
+    ```sh hl_lines="1 2 3 4 7 8 11" 
+    fwenv_set -8 iphost_mac AA:BB:CC:DD:EE:FF
+    fwenv_set -8 gpon_sn SDMC...
     fwenv_set -8 equipment_id NP6089XGS
     fwenv_set -8 hw_ver NP6089-V1.1
-    fwenv_set -8 cp_hw_ver_sync 0
-
-    fwenv_set -8 iphost_mac "$BASE_MAC"
-
     fwenv_set -8 sw_verA S07.32.03.021
     fwenv_set -8 sw_verB S07.32.03.055
-    fwenv_set -8 -b fw_match '^(S07\.32\.03\.[0-9]{3})$'
-
-    fwenv_set -8 omcc_ver 0xa0
+    fwenv_set -8 omcc_ver 0xA0
     fwenv_set -8 reg_id_hex 20202020202020202020
-    fwenv_set -8 mib_file /etc/mibs/prx300_1U.ini
-    fwenv_set -8 pon_slot 1
+    fwenv_set -8 override_active B
+    fwenv_set -8 override_commit B
     fwenv_set -8 fix_vlans 0
     ```
 
