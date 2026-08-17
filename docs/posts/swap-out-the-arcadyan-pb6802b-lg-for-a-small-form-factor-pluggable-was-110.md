@@ -137,17 +137,17 @@ Use your preferred setup method and carefully follow the steps to avoid unnecess
         <ins>Replace</ins> the :blue_circle: __8311_gpon_sn__ with the __PON S/N__ found on the {{ page.meta.ont }} [label].
 
     ``` sh hl_lines="1 2 3 4 5 6 7 8 10"
-    fwenv_set -8 equipment_id=PB6802B-LG
-    fwenv_set -8 hw_ver=PB6802B-LG
-    fwenv_set -8 override_active=A
-    fwenv_set -8 override_commit=A
-    fwenv_set -8 gpon_sn=ARLG... # (1)!
-    fwenv_set -8 mib_file=/etc/mibs/prx300_1V.ini
-    fwenv_set -8 fix_vlans=1
-    fwenv_set -8 internet_vlan=911
-    fwenv_set -8 fw_match_b64=KFswLTldK1wuWzAtOV0rXC5bMC05XStfcHJvZCk=
-    fwenv_set -8 sw_verA=3.1.6_prod # (2)!
-    fwenv_set -8 sw_verB=3.1.6_prod
+    fwenv_set -8 equipment_id PB6802B-LG
+    fwenv_set -8 hw_ver PB6802B-LG
+    fwenv_set -8 override_active A
+    fwenv_set -8 override_commit A
+    fwenv_set -8 gpon_sn ARLG... # (1)!
+    fwenv_set -8 mib_file /etc/mibs/prx300_1V.ini
+    fwenv_set -8 fix_vlans 1
+    fwenv_set -8 internet_vlan 911
+    fwenv_set -8 -b fw_match '([0-9]+\.[0-9]+\.[0-9]+_prod)'
+    fwenv_set -8 sw_verA 3.1.6_prod # (2)!
+    fwenv_set -8 sw_verB 3.1.6_prod
     ```
 
     1. :blue_circle: PON S/N
