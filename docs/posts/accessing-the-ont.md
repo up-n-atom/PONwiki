@@ -583,7 +583,7 @@ graph TD
 
 === ":simple-ubiquiti: UniFi OS"
 
-    !!! warning "These steps are intended __ONLY__ for DHCP or Static IP WAN connections"
+    !!! warning "These steps apply __ONLY__ to non-VLAN DHCP or Static IP WAN connections"
         If your WAN is configured for PPPoE or runs over a VLAN, you cannot create a static route to the physical WAN interface
         because UniFi binds these connections to a virtual interface. Use [Source NAT](#source-nat) instead.
 
