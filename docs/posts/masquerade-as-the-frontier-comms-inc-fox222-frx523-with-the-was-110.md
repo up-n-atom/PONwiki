@@ -104,8 +104,8 @@ identifiers are available on the back label of the FOX222 or FRX523, color-coord
         | Equipment ID                     | FOX222                  |                                 |
         | Hardware Version                 | FOX222                  |                                 |
         | Sync Circuit Pack Version        | :check_mark:            |                                 |
-        | Software Version A               | R4.4.08.030             | [Version listing] <small>listing maybe dated</small> |
-        | Software Version B               | R4.4.08.030             | [Version listing] <small>listing maybe dated</small> |
+        | Software Version A               | R4.4.08.030             | [Version listing] <small>may be outdated</small> |
+        | Software Version B               | R4.4.08.030             | [Version listing] <small>may be outdated</small> |
         | Firmware Version Match           | ^(R\d+(?:\\.\d+){3})$   | Community FW v2.5.0+            |
         | Override active firmware bank    | A                       | OLT inits a reboot if on bank B |
         | Override committed firmware bank | A                       | OLT inits a reboot if on bank B |
@@ -121,8 +121,8 @@ identifiers are available on the back label of the FOX222 or FRX523, color-coord
         | Equipment ID                     | FRX523                  |                                       |
         | Hardware Version                 | FRX523                  |                                       |
         | Sync Circuit Pack Version        | :check_mark:            |                                       |
-        | Software Version A               | R4.4.13.067             | [Version listing] <small>listing maybe dated</small> |
-        | Software Version B               | R4.4.13.067             | [Version listing] <small>listing maybe dated</small> |
+        | Software Version A               | R4.4.37.019             | [Version listing] <small>may be outdated</small> |
+        | Software Version B               | R4.4.37.019             | [Version listing] <small>may be outdated</small> |
         | Firmware Version Match           | ^(R\d+(?:\\.\d+){3})$   | Community FW v2.5.0+                  |
         | Override active firmware bank    | A                       | OLT inits a reboot if on bank B       |
         | Override committed firmware bank | A                       | OLT inits a reboot if on bank B       |
@@ -186,8 +186,8 @@ identifiers are available on the back label of the FOX222 or FRX523, color-coord
         fwenv_set -8 equipment_id FRX523
         fwenv_set -8 hw_ver FRX523
         fwenv_set -8 cp_hw_ver_sync 1
-        fwenv_set -8 sw_verA R4.4.13.067 # (2)!
-        fwenv_set -8 sw_verB R4.4.13.067
+        fwenv_set -8 sw_verA R4.4.37.019 # (2)!
+        fwenv_set -8 sw_verB R4.4.37.019
         fwenv_set -b 8311_fw_match '^(R\d+(?:\.\d+){3})$'
         fwenv_set -8 override_active A
         fwenv_set -8 override_commit A
