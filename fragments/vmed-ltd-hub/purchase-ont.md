@@ -6,8 +6,8 @@ The [WAS-110], [X-ONU-SFPP], and [WT-ONU-STICK] are available from select resell
 discretion. We assume no responsibility or liability for the listed resellers.
 
 ??? info "Purchase SC/APC variant"
-    Although Virgin Media terminate their fiber at the ONT using LC/APC connectors, purchasing an SC/APC ONT guarantees
-    portability and compatibility across the pond or channel.
+    Although {{ page.meta.operator }} terminate their fiber at the ONT using LC/APC connectors, purchasing an
+    SC/APC ONT guarantees portability and compatibility.
 
     Angled Physical Contact (APC) tips are polished to 8 degrees. This eliminates signal reflections on the
     fiber.
@@ -46,5 +46,5 @@ discretion. We assume no responsibility or liability for the listed resellers.
 
 A Female LC/APC to Male SC/APC adapter is necessary for connecting to the [WAS-110] or [X-ONU-SFPP] with the
 provisioned LC/APC cable, or a Male LC/APC to Male SC/APC patch cable, both of which can be purchased at
-<https://www.amazon.co.uk/>.
+<https://www.amazon.com/> or <https://www.amazon.co.uk/>.
 

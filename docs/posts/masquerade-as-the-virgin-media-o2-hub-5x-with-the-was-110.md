@@ -16,6 +16,7 @@ links:
   - posts/accessing-the-ont.md
   - posts/troubleshoot-connectivity-issues-with-the-was-110.md
 ont: Hub 5x
+operator: Virgin Media
 ---
 
 # Masquerade as the Virgin Media O2 Hub 5x with the WAS-110 or X-ONU-SFPP
