@@ -17,6 +17,7 @@
     <option value="p4-sp-z-oo-playiliad-group">&#127477;&#127473; Play</option>
     <option value="rogers">&#127464;&#127462; Rogers</option>
     <option value="salt-mobile-sa">&#127464;&#127469; Salt Mobile SA</option>
+    <option value="sunrise">&#127464;&#127469; yallo, Sunrise LLC</option>
     <option value="sasktel">&#127464;&#127462; SaskTel</option>
     <option value="sonic">&#127482;&#127480; Sonic</option>
     <option value="telus">&#127464;&#127462; Telus</option>
