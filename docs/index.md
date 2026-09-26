@@ -10,6 +10,7 @@
     <option value="epic-ltd">&#127464;&#127486; Epic</option>
     <option value="frontier">&#127482;&#127480; Frontier</option>
     <option value="giffgaff">&#127468;&#127463; GiffGaff</option>
+    <option value="kpn">&#127475;&#127473; KPN</option>
     <option value="lightspeed">&#127468;&#127463; Lightspeed</option>
     <option value="nos">&#x1f1f5;&#x1f1f9; NOS</option>
     <option value="orange-sa">&#127467;&#127479; Orange S.A.</option>
