@@ -15,7 +15,7 @@ hide:
 
 ## [Youtube](https://www.youtube.com/)
 
-### October 26,2026
+### October 26, 2026
 
 <div class="video">
 <iframe width="560" height="315" src="https://www.youtube.com/embed//sJidlu3pPb4" title="Own Everything &amp; Be Happy, Ep. 1 | DIY Router Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

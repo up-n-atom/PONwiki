@@ -265,7 +265,7 @@ Follow a cautious, test‑driven approach.
 
 - [ ] **Research purpose‑built hardware**
 
-    !!! tip "Avoid all‑in‑one's! Do not rely on mesh routers or gaming routers for core routing and security."
+    !!! tip "Avoid all‑in‑ones! Do not rely on mesh routers or gaming routers for core routing and security unless rooted."
 
     - [ ] **Gateway/Router:** Dedicated device for routing, firewall, VPN, and IDS/IPS.
     - [ ] **Access Points:** Managed wireless access points for Wi‑Fi coverage.
