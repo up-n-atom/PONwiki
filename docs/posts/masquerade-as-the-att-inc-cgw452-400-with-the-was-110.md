@@ -3,7 +3,6 @@ date: 2026-04-25
 categories:
   - XGS-PON
   - CGW452-400
-  - BGW620-700
   - WAS-110
   - AT&T
   - Vantiva
