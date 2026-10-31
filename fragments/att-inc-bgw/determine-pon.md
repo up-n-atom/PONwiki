@@ -18,8 +18,8 @@
 
 ## Verify XGS-PON service
 
-!!! info "2 Gbps or higher tiers"
-    If you are subscribed to 2 GIG speed or a similar 2 Gbps or higher tier internet package, skip past to
+!!! info "5 Gbps or grandfathered 2 Gbps tiers"
+    If you are subscribed to 5 GIG or the grandfathered 2 GIG internet package, skip past to
     [Purchase WAS-110/HLX-SFPX ONT].
 
   [Purchase WAS-110/HLX-SFPX ONT]: #purchase-was-110-hlx-sfpx-ont
