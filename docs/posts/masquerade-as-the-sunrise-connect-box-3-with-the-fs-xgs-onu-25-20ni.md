@@ -1,6 +1,5 @@
 ---
 date: 2026-11-09
-draft: true
 categories:
   - XGS-PON
   - Connect Box 3
