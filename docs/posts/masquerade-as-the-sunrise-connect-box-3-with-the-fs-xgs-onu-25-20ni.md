@@ -19,7 +19,7 @@ operator: Sunrise
 
 # Masquerade as the Sunrise Connect Box 3 with the FS.com XGS-ONU-25-20NI
 
-<!-- TODO: hero image, bypass_connect_box_3.webp -->
+![Bypass Connect Box 3]({{ page.meta.slug }}/bypass_{{ page.meta.ont | lower | replace(" ", "_") }}.webp){ class="nolightbox" }
 
 <!-- more -->
 <!-- nocont -->
@@ -87,7 +87,7 @@ status page.
     The label below only has `MAC:` and `S/N:` fields, and its `S/N:` begins `YAAS`&hellip;. Do not confuse it with the
     __ONU Serial Number__ from the __Info__ page, which begins `YCEC`&hellip;.
 
-<!-- TODO: connect_box_3_label.webp, with the serial, MAC, passwords and barcodes redacted -->
+![{{ page.meta.ont }} label]({{ page.meta.slug }}/{{ page.meta.ont | lower | replace(" ", "_") }}_label.webp){ class="nolightbox" }
 
 1.  Log in over telnet and open the `misc` menu.
 
