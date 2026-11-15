@@ -162,21 +162,21 @@ All `http://` URLs will redirect to `https://` unless the `8311_https_redirect` 
    !!! reminder
    ^^Replace^^ the redacted **PON serial number** and **IP Host MAC Address** with your gateway's values.
 
-   | Attribute                        | Value                   | Remarks                           |
-   | -------------------------------- | ----------------------- | --------------------------------- |
-   | PON Serial Number (ONT ID)       | KAONxxxxxxxx            | Use the subscriber-specific value |
-   | Vendor ID                        | KAON                    |                                   |
-   | Equipment ID                     | PG5298A                 |                                   |
-   | Hardware Version                 | PG5298A_1.0             |                                   |
-   | Sync Circuit Pack Version        | Enabled                 | `8311_cp_hw_ver_sync=1`           |
-   | Software Version A               | 3.0.48                  | Active image                      |
-   | Software Version B               | 3.0.48                  | Inactive image                    |
-   | Override active firmware bank    | A                       |                                   |
-   | Override committed firmware bank | A                       |                                   |
-   | OMCC Version                     | 0xA1                    |                                   |
-   | PON Slot                         | 1                       |                                   |
-   | MIB File                         | /etc/mibs/prx300_1V.ini | VEIP                              |
-   | IP Host MAC Address              | <BASE-MAC>              |                                   |
+   | Attribute                        | Value                   | Mandatory    | Remarks                           |
+   | -------------------------------- | ----------------------- | ------------ | --------------------------------- |
+   | PON Serial Number (ONT ID)       | KAONxxxxxxxx            | :check_mark: | Use the subscriber-specific value |
+   | Vendor ID                        | KAON                    | :check_mark: |                                   |
+   | Equipment ID                     | PG5298A                 | :check_mark: |                                   |
+   | Hardware Version                 | PG5298A_1.0             | :check_mark: |                                   |
+   | Sync Circuit Pack Version        | Enabled                 | :check_mark: | `8311_cp_hw_ver_sync=1`           |
+   | Software Version A               | 3.0.48                  |              | Active image                      |
+   | Software Version B               | 3.0.48                  |              | Inactive image                    |
+   | Override active firmware bank    | A                       |              |                                   |
+   | Override committed firmware bank | A                       |              |                                   |
+   | OMCC Version                     | 0xA1                    | :check_mark: |                                   |
+   | PON Slot                         | 1                       |              |                                   |
+   | MIB File                         | /etc/mibs/prx300_1V.ini | :check_mark: | VEIP                              |
+   | IP Host MAC Address              | <BASE-MAC>              | :check_mark: |                                   |
 
 3. From the **8311 Configuration** page, on the **ISP Fixes** tab, disable **Fix VLANs** from the drop-down.
 
