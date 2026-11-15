@@ -108,7 +108,7 @@ Use your preferred setup method and carefully follow the steps to avoid unnecess
 
     | Attribute                  | Value                         | Mandatory    | Remarks                    |
     | -------------------------- | ----------------------------- | ------------ | -------------------------- |
-    | PON Serial Number (ONT ID) | SMBS&hellip;                  | :check_mark: | :blue_circle: PON S/N      |
+    | PON Serial Number (ONT ID) | YCEC&hellip;                  | :check_mark: | :blue_circle: PON S/N      |
     | Equipment ID               | MERCV3X                       |              |                            |
     | Hardware Version           | 1.0                           |              |                            |
     | Sync Circuit Pack Version  | :check_mark:                  |              |                            |
@@ -144,7 +144,7 @@ Use your preferred setup method and carefully follow the steps to avoid unnecess
     ``` sh hl_lines="1 3 9 10 11"
     fwenv_set mib_file
     fwenv_set -8 iphost_mac !C4:EB:43:00:00:01 #(1)!
-    fwenv_set -8 gpon_sn SMBS... # (2)!
+    fwenv_set -8 gpon_sn YCEC... # (2)!
     fwenv_set -8 equipment_id MERCV3X
     fwenv_set -8 hw_ver 1.0
     fwenv_set -8 cp_hw_ver_sync 1
