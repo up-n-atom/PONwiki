@@ -192,25 +192,25 @@ All `http://` URLs will redirect to `https://` unless the `8311_https_redirect` 
 
 2. Configure the 8311 U-Boot environment.
 
-   !!! reminder
-   ^^Replace^^ the mandatory **PON serial number**, and **IP Host MAC Address**.
+    !!! reminder "Highlighted lines are <ins>mandatory</ins>"
+        ^^Replace^^ the mandatory **PON serial number** and **IP Host MAC Address**.
 
-   ```sh
-   fwenv_set -8 iphost_mac AA:BB:CC:DD:EE:FF
-   fwenv_set -8 equipment_id PG5298A
-   fwenv_set -8 hw_ver PG5298A_1.0
-   fwenv_set -8 cp_hw_ver_sync 1
-   fwenv_set -8 omcc_version 0xA1
-   fwenv_set -8 pon_slot 1
-   fwenv_set -8 vendor_id KAON
-   fwenv_set -8 gpon_sn KAONxxxxxxxx
-   fwenv_set -8 sw_verA 3.0.48
-   fwenv_set -8 sw_verB 3.0.48
-   fwenv_set -8 override_active A
-   fwenv_set -8 override_commit A
-   fwenv_set -8 mib_file /etc/mibs/prx300_1V.ini
-   fwenv_set -8 fix_vlans 0
-   ```
+    ```sh hl_lines="1 2 3 4 5 7 8 13"
+    fwenv_set -8 iphost_mac AA:BB:CC:DD:EE:FF
+    fwenv_set -8 equipment_id PG5298A
+    fwenv_set -8 hw_ver PG5298A_1.0
+    fwenv_set -8 cp_hw_ver_sync 1
+    fwenv_set -8 omcc_version 0xA1
+    fwenv_set -8 pon_slot 1
+    fwenv_set -8 vendor_id KAON
+    fwenv_set -8 gpon_sn KAONxxxxxxxx
+    fwenv_set -8 sw_verA 3.0.48
+    fwenv_set -8 sw_verB 3.0.48
+    fwenv_set -8 override_active A
+    fwenv_set -8 override_commit A
+    fwenv_set -8 mib_file /etc/mibs/prx300_1V.ini
+    fwenv_set -8 fix_vlans 0
+    ```
 
 3. Verify the 8311 U-Boot environment and reboot.
 

@@ -197,15 +197,17 @@ identifiers, is available from the web UI or label of the SDMC NP6089XGS.
     !!! reminder "Highlighted lines are <ins>mandatory</ins>"
         ^^Replace^^ the mandatory **PON serial number** and **IP Host MAC Address**.
 
-    ```sh hl_lines="1 2 3 4 7 8 11"
+    ```sh hl_lines="1 2 3 4 5 8 9 10"
     fwenv_set -8 iphost_mac AA:BB:CC:DD:EE:FF
     fwenv_set -8 gpon_sn SDMCxxxxxxxx
     fwenv_set -8 equipment_id NP6089XGS
     fwenv_set -8 hw_ver NP6089-V1.1
+    fwenv_set -8 cp_hw_ver_sync 0
     fwenv_set -8 sw_verA S07.32.03.021
     fwenv_set -8 sw_verB S07.32.03.055
     fwenv_set -8 omcc_ver 0xA0
     fwenv_set -8 reg_id_hex 20202020202020202020
+    fwenv_set -8 mib_file /etc/mibs/prx300_1U.ini
     fwenv_set -8 override_active B
     fwenv_set -8 override_commit B
     fwenv_set -8 fix_vlans 0
