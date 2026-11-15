@@ -3,8 +3,10 @@ date: 2026-09-26
 categories:
   - XGS-PON
   - X-ONU-SFPP
-  - XS-010X-Q
   - Nokia
+  - XS-010X-Q
+  - Genexis
+  - OGG1012
   - KPN
 description: Swap out the KPN XGS-PON ONT for the X-ONU-SFPP
 slug: swap-out-the-kpn-xgs-pon-ont-for-the-x-onu-sfpp
