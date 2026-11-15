@@ -167,7 +167,7 @@ identifiers, is available from the web UI or label of the SDMC NP6089XGS.
 
     | Attribute                        | Value                   | Mandatory    | Remarks                           |
     | -------------------------------- | ----------------------- | ------------ | --------------------------------- |
-    | PON Serial Number (ONT ID)       | SDMCXXXXXXXX            | :check_mark: | Use the subscriber-specific value |
+    | PON Serial Number (ONT ID)       | SDMCxxxxxxxx            | :check_mark: | Use the subscriber-specific value |
     | Equipment ID                     | NP6089XGS               | :check_mark: |                                   |
     | Hardware Version                 | NP6089-V1.1             | :check_mark: |                                   |
     | Sync Circuit Pack Version        | Disabled                | :check_mark: | `8311_cp_hw_ver_sync=0`           |
@@ -199,7 +199,7 @@ identifiers, is available from the web UI or label of the SDMC NP6089XGS.
 
     ```sh hl_lines="1 2 3 4 7 8 11"
     fwenv_set -8 iphost_mac AA:BB:CC:DD:EE:FF
-    fwenv_set -8 gpon_sn SDMC...
+    fwenv_set -8 gpon_sn SDMCxxxxxxxx
     fwenv_set -8 equipment_id NP6089XGS
     fwenv_set -8 hw_ver NP6089-V1.1
     fwenv_set -8 sw_verA S07.32.03.021

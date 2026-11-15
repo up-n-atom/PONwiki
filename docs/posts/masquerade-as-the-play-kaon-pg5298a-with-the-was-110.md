@@ -203,7 +203,7 @@ All `http://` URLs will redirect to `https://` unless the `8311_https_redirect` 
    fwenv_set -8 omcc_version 0xA1
    fwenv_set -8 pon_slot 1
    fwenv_set -8 vendor_id KAON
-   fwenv_set -8 gpon_sn KAON...
+   fwenv_set -8 gpon_sn KAONxxxxxxxx
    fwenv_set -8 sw_verA 3.0.48
    fwenv_set -8 sw_verB 3.0.48
    fwenv_set -8 override_active A
