@@ -17,6 +17,7 @@
 *[EEPROM]: Electrically Erasable Programmable Read-Only Memory
 *[EPON]: Ethernet Passive Optical Network
 *[FDP]: Foundry Discovery Protocol
+*[FTTH]: Fiber to the Home
 *[GEM]: GPON Encapsulation Method
 *[GPON]: Gigabit Passive Optical Network
 *[HGU]: Home Gateway Unit
@@ -32,6 +33,7 @@
 *[LAN]: Local Area Network
 *[LCT]: Local Craft Terminal
 *[LLDP]: Link Layer Discovery Protocol
+*[LLM]: Large Language Model
 *[MAC]: Medium Access Control
 *[MIB]: Management Information Base
 *[MNDP]: MikroTik Neighbor Discovery Protocol
