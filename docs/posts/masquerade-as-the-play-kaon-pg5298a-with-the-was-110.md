@@ -220,7 +220,7 @@ All `http://` URLs will redirect to `https://` unless the `8311_https_redirect` 
    ```
 
 !!! warning "O5.1 can be a false positive"
-If the ONT reports O5.1 but the VLAN page says `No Extended VLAN Tables Detected`, the OLT has not accepted the full OMCI profile. Do not proceed to router troubleshooting until the service objects exist.
+    If the ONT reports O5.1 but the VLAN page says `No Extended VLAN Tables Detected`, the OLT has not accepted the full OMCI profile. Do not proceed to router troubleshooting until the service objects exist.
 
 ## Verify OLT provisioning
 
