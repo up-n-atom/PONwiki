@@ -11,13 +11,10 @@ categories:
 
 # Masquerade as the Play SDMC NP6089XGS with the WAS-110 or X-ONU-SFPP
 
-![Bypass Kielbasa](masquerade-as-the-play-sdmc-np6089xgs-with-the-was-110/bypass_np6089xgs.webp){ class="nolightbox" }
+![Bypass Tube](play-iliad-shared-assets/bypass_tube.webp){ class="nolightbox" }
 
 <!-- more -->
 <!-- nocont -->
-
-!!! warning "Tested footprint"
-    This was tested only on PŚO network. Play also uses other wholesale networks and OLT configurations, so VLANs or OMCI requirements may differ elsewhere.
 
 ## Purchase a WAS-110 or X-ONU-SFPP
 
@@ -65,13 +62,13 @@ Follow the [Accessing the ONT](accessing-the-ont.md) guide before continuing.
 </div>
 
 1. Within a web browser, navigate to
-   <http://192.168.0.1>
-   and sign in to the original SDMC gateway. Then, from **Status**, select **Device Information** and record the
-   **Equipment ID** (**Device Type**),
-   **Software Version**, and **GPON S/N** (**SN**).
+    <http://192.168.0.1>
+    and sign in to the original SDMC gateway. Then, from **Status**, select **Device Information** and record the
+    **Equipment ID** (**Device Type**),
+    **Software Version**, and **GPON S/N** (**SN**).
 
 2. From **Status**, select **WAN Information** and record the **VLAN ID** shown in the **VLAN** column.
-   Play uses VLAN `35`.
+    Play normally uses VLAN `35`.
 
 ### PON serial number
 
@@ -86,23 +83,6 @@ The first four characters are the vendor ID. The final eight characters are hexa
 ### MAC addresses
 
 Record the base MAC printed on the gateway label or shown in its web interface.
-
-??? info "Optional: verify the original SDMC from its shell"
-    Root shell access is not required for the replacement because the fixed model attributes are documented below. If shell access is already available, these read-only commands are useful for verification:
-
-    ``` sh
-    gponctl getState
-    gponctl getSnPwd
-    gponctl getOnuId
-    gponctl getAllocIds
-    gponctl getOmciPort
-    ```
-
-    To observe the original DHCP client and its actual service MAC:
-
-    ``` sh
-    tcpdump -eni veip0.1 -s0 -vvv -c 8 'udp port 67 or 68'
-    ```
 
 ## Install the 8311 community firmware
 
@@ -177,27 +157,28 @@ identifiers, is available from the web UI or label of the SDMC NP6089XGS.
 </div>
 
 1. Within a web browser, navigate to
-   <https://192.168.11.1/cgi-bin/luci/admin/8311/config>
-   and, if asked, input your <em>root</em> password.
+    <https://192.168.11.1/cgi-bin/luci/admin/8311/config>
+    and, if asked, input your <em>root</em> password.
 
 2. From the **8311 Configuration** page, on the **PON** tab, fill in the configuration with the following values:
 
     !!! reminder
         ^^Replace^^ the mandatory **PON serial number**, **Software Versions**, and **IP Host MAC Address**.
 
-    | Attribute                        | Value                     | Mandatory    | Remarks                                            |
-    | -------------------------------- | ------------------------- | ------------ | -------------------------------------------------- |
-    | PON Serial Number (ONT ID)       | SDMCXXXXXXXX              | :check_mark: | Use the subscriber-specific value                  |
-    | Equipment ID                     | NP6089XGS                 | :check_mark: |                                                    |
-    | Hardware Version                 | NP6089-V1.1               | :check_mark: |                                                    |
-    | Software Version A               | S07.32.03.021             |              | Inactive image                                     |
-    | Software Version B               | S07.32.03.055             |              | Active image                                       |
-    | Override active firmware bank    | B                         |              |                                                    |
-    | Override committed firmware bank | B                         |              |                                                    |
-    | OMCC Version                     | 0xA0                      | :check_mark: |                                                    |
-    | Registration ID (HEX)            | 20202020202020202020      | :check_mark: |                                                    |
-    | MIB File                         | /etc/mibs/prx300_1U.ini   | :check_mark: | PPTP i.e. default value                            |
-    | IP Host MAC Address              | <BASE-MAC>                | :check_mark: |                                                    |
+    | Attribute                        | Value                   | Mandatory    | Remarks                           |
+    | -------------------------------- | ----------------------- | ------------ | --------------------------------- |
+    | PON Serial Number (ONT ID)       | SDMCxxxxxxxx            | :check_mark: | Use the subscriber-specific value |
+    | Equipment ID                     | NP6089XGS               | :check_mark: |                                   |
+    | Hardware Version                 | NP6089-V1.1             | :check_mark: |                                   |
+    | Sync Circuit Pack Version        | Disabled                | :check_mark: | `8311_cp_hw_ver_sync=0`           |
+    | Software Version A               | S07.32.03.021           |              | Inactive image                    |
+    | Software Version B               | S07.32.03.055           |              | Active image                      |
+    | Override active firmware bank    | B                       |              |                                   |
+    | Override committed firmware bank | B                       |              |                                   |
+    | OMCC Version                     | 0xA0                    | :check_mark: |                                   |
+    | Registration ID (HEX)            | 20202020202020202020    | :check_mark: |                                   |
+    | MIB File                         | /etc/mibs/prx300_1U.ini | :check_mark: | PPTP i.e. default value           |
+    | IP Host MAC Address              | <BASE-MAC>              | :check_mark: |                                   |
 
 3. From the **8311 Configuration** page, on the **ISP Fixes** tab, disable **Fix VLANs** from the drop-down.
 
@@ -214,17 +195,19 @@ identifiers, is available from the web UI or label of the SDMC NP6089XGS.
 2. Configure the 8311 U-Boot environment.
 
     !!! reminder "Highlighted lines are <ins>mandatory</ins>"
-        ^^Replace^^ the mandatory **PON serial number**, **Software Versions**, and **IP Host MAC Address**.
+        ^^Replace^^ the mandatory **PON serial number** and **IP Host MAC Address**.
 
-    ```sh hl_lines="1 2 3 4 7 8 11" 
+    ```sh hl_lines="1 2 3 4 5 8 9 10"
     fwenv_set -8 iphost_mac AA:BB:CC:DD:EE:FF
-    fwenv_set -8 gpon_sn SDMC...
+    fwenv_set -8 gpon_sn SDMCxxxxxxxx
     fwenv_set -8 equipment_id NP6089XGS
     fwenv_set -8 hw_ver NP6089-V1.1
+    fwenv_set -8 cp_hw_ver_sync 0
     fwenv_set -8 sw_verA S07.32.03.021
     fwenv_set -8 sw_verB S07.32.03.055
     fwenv_set -8 omcc_ver 0xA0
     fwenv_set -8 reg_id_hex 20202020202020202020
+    fwenv_set -8 mib_file /etc/mibs/prx300_1U.ini
     fwenv_set -8 override_active B
     fwenv_set -8 override_commit B
     fwenv_set -8 fix_vlans 0
@@ -361,13 +344,12 @@ DHCP Option 61 must be removed from DHCP requests to receive an ACK from the Pla
 
 ## Troubleshooting
 
-| Symptom                                                  | Likely cause                                  | Check                                                               |
-| -------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------- |
-| Stuck before O5                                          | PON serial, optics, or Registration ID        | Serial format, optical power, Registration ID                       |
-| O5.1, but no Extended VLAN table                         | OMCI identity or MIB mismatch                 | `NP6089XGS`, `NP6089-V1.1`, `0xA0`, `prx300_1U.ini`, slot `1`       |
-| No Alloc-IDs or data GEMs                                | OLT did not continue provisioning             | Check the VLAN page and OMCI log after ME 287                       |
-| GEMs exist, but no DHCP Offer                            | Wrong router VLAN or WAN MAC                  | VLAN `35`, clone the original Internet service MAC                  |
-| DHCP Offer followed by NAK on the router                 | DHCP Option 61 still present                  | Verify that the WAN DHCP client does not send Option 61             |
+| Symptom                                  | Likely cause                           | Check                                                         |
+| ---------------------------------------- | -------------------------------------- | ------------------------------------------------------------- |
+| Stuck before O5                          | PON serial, optics, or Registration ID | Serial format, optical power, Registration ID                 |
+| O5.1, but no Extended VLAN table         | OMCI identity or MIB mismatch          | `NP6089XGS`, `NP6089-V1.1`, `0xA0`, `prx300_1U.ini`, slot `1` |
+| GEMs exist, but no DHCP Offer            | Wrong router VLAN or WAN MAC           | VLAN `35`, clone the original Internet service MAC            |
+| DHCP Offer followed by NAK on the router | DHCP Option 61 still present           | Verify that the WAN DHCP client does not send Option 61       |
 
 For general optical, PLOAM, and OMCI diagnostics, follow the [Troubleshoot connectivity issues with the WAS-110 or X-ONU-SFPP](troubleshoot-connectivity-issues-with-the-was-110.md) guide.
 
