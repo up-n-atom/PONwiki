@@ -170,9 +170,24 @@ To masquerade, you will need the original ONT serial number and other identifier
 
 ### IPv6
 
-AT&T's DHCPv6 server may only respond to the {{ page.meta.ont }}'s DUID, the identifier a DHCPv6 client sends with
-its requests. If your router is not receiving an IPv6 address or prefix delegation, you must __clone the
-{{ page.meta.ont }} WAN DUID onto your router's DHCPv6 client.__
+AT&T assigns a single /128 WAN address, usually starting with `2001:506:`, and delegates a /60 prefix. Configure your
+router's DHCPv6 client to request a __/60__ prefix delegation.
+
+!!! warning "The /128 WAN address is <ins>NOT</ins> routable"
+    Routers that source their own IPv6 traffic from the WAN address, such as pfSense, will be unable to reach services
+    like the package manager. To avoid this issue, use one of the following options:
+
+    * Request only an IPv6 prefix and <ins>not</ins> an address. The router will instead use a LAN interface that is
+      assigned a subnet from the delegation for its outbound IPv6.
+    * Reserve a subnet from the delegation e.g. subnet 0, and set a static address from it on the WAN interface. The
+      static address must be updated manually if the delegation ever changes.
+
+#### DUID { #ipv6-duid }
+
+The DUID is the identifier a DHCPv6 client sends with its requests. Any DUID type e.g. DUID-LLT will work, but AT&T
+may not respond until the lease held by the {{ page.meta.ont }} drops. In some cases this is instant, in others it
+takes 30 minutes, or even a day or two. To avoid the wait, __clone the {{ page.meta.ont }} WAN DUID onto your router's
+DHCPv6 client.__
 
 The WAN DUID is made up of the following:
 
@@ -200,14 +215,17 @@ printf '%s' '<OUI>-<SERIAL>' | od -An -v -tx1 | tr -d ' \n' | sed 's/../:&/g;s/^
 
 #### :simple-pfsense: pfSense { #ipv6-pfsense data-toc-label="pfSense" }
 
-1. Navigate to __System > Advanced > Networking__.
-2. From the __DHCP6 DUID__ drop-down, select __Raw DUID__, paste the generated DUID, and click __Save__.
-3. Reboot or reconfigure the WAN interface for the new DUID to take effect.
+1. Navigate to __Interfaces > WAN__.
+2. From the __DHCP6 Client Configuration__ section, check __Request only an IPv6 prefix__, select __60__ from the
+   __DHCPv6 Prefix Delegation size__ drop-down, and click __Save__.
+3. To clone the [DUID](#ipv6-duid), navigate to __System > Advanced > Networking__.
+4. From the __DHCP6 DUID__ drop-down, select __Raw DUID__, paste the generated DUID, and click __Save__.
+5. Reboot or reconfigure the WAN interface for the changes to take effect.
 
 !!! note "The saved DUID will start with its length e.g. `1b:00:`, which is expected"
 
 !!! info "Be patient..."
-    It may take several minutes before AT&T responds. Once it does, you should receive the same /128 WAN address and
+    With a cloned DUID, it may take several minutes before AT&T responds. Once it does, you should receive the same
     /60 prefix delegation as the {{ page.meta.ont }}.
 
 {% include 'att-inc-bgw/switch-tips.md' %}
