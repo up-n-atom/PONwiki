@@ -14,6 +14,7 @@
 *[DHCP]: Dynamic Host Configuration Protocol
 *[DoH]: DNS over HTML
 *[DoT]: DNS over TLS
+*[DUID]: DHCP Unique Identifier
 *[EEPROM]: Electrically Erasable Programmable Read-Only Memory
 *[EPON]: Ethernet Passive Optical Network
 *[FDP]: Foundry Discovery Protocol
