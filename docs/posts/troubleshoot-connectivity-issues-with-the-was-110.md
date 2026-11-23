@@ -632,6 +632,37 @@ host controller and implementation, the interface may enter a power saving state
 
 1. Replace spf`X` with the port name/number.
 
+### Unqualified module
+
+Intel Ethernet 700 series adapters (e.g., X710) have firmware that checks for Intel qualified modules[^8], which the
+[WAS-110] is not. The check can't be disabled by the driver.
+
+If you see the following output in your system log, the adapter has flagged the [WAS-110] as unqualified:
+
+=== ":simple-freebsd: FreeBSD / :simple-pfsense: pfSense"
+
+    ``` sh
+    ixl0: Link failed because an unqualified module was detected!
+    ```
+
+=== ":simple-linux: Linux"
+
+    ``` sh
+    i40e 0000:01:00.0: Rx/Tx is disabled on this device because an unsupported SFP module type was detected.
+    ```
+
+The message is only logged while the link is down and does not always mean the [WAS-110] won't work. As Intel puts it,
+"other modules may function but are not validated by Intel"[^9]. If the link comes up and the [WAS-110] is accessible,
+the message can be ignored.
+
+If the link never comes up, check the [link speed](#link-speed) first. Otherwise, the adapter is likely refusing the
+[WAS-110], and it should be moved to a media converter or network switch port instead.
+
+!!! warning "Unlocking the adapter has been tested but <ins>NOT</ins> vetted"
+    Tools such as [xl710-unlocker](https://github.com/bibigon812/xl710-unlocker) unlock X710 and XL710 adapters for
+    use with any SFP+ module by modifying the adapter's non-volatile memory (NVM). It has been tested, but the tool
+    itself has not been vetted, so proceed with caution and at your own risk.
+
 ### Supply voltage
 
 The [WAS-110] can draw up to 3 W[^6], which is more than SFP+ power class 3 (2 W)[^5] and more than some host
@@ -851,3 +882,5 @@ omci_pipe.sh meadg 131 0 1 | awk '/41 4C 43 4C/ {print "Nokia OLT"; id=1} /20 20
 [^5]: [SFF-8419](https://members.snia.org/document/dl/25880)
 [^6]: <https://akhamar.github.io/orange-xgs-pon/30_was_onu.html>
 [^7]: <https://docs.netgate.com/pfsense/en/latest/hardware/tune.html>
+[^8]: <https://man.freebsd.org/cgi/man.cgi?query=ixl&sektion=4>
+[^9]: <https://docs.kernel.org/networking/device_drivers/ethernet/intel/i40e.html>
