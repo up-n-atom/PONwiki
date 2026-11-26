@@ -168,6 +168,66 @@ To masquerade, you will need the original ONT serial number and other identifier
 
 {% include 'att-inc-bgw/router-tips.md' %}
 
+### IPv6
+
+AT&T assigns a single /128 WAN address, usually starting with `2001:506:`, and delegates a /60 prefix. Configure your
+router's DHCPv6 client to request a __/60__ prefix delegation.
+
+!!! warning "The /128 WAN address is <ins>NOT</ins> routable"
+    Routers that source their own IPv6 traffic from the WAN address, such as pfSense, will be unable to reach services
+    like the package manager. To avoid this issue, use one of the following options:
+
+    * Request only an IPv6 prefix and <ins>not</ins> an address. The router will instead use a LAN interface that is
+      assigned a subnet from the delegation for its outbound IPv6.
+    * Reserve a subnet from the delegation e.g. subnet 0, and set a static address from it on the WAN interface. The
+      static address must be updated manually if the delegation ever changes.
+
+#### DUID { #ipv6-duid }
+
+The DUID is the identifier a DHCPv6 client sends with its requests. Any DUID type e.g. DUID-LLT will work, but AT&T
+may not respond until the lease held by the {{ page.meta.ont }} drops. In some cases this is instant, in others it
+takes 30 minutes, or even a day or two. To avoid the wait, __clone the {{ page.meta.ont }} WAN DUID onto your router's
+DHCPv6 client.__
+
+The WAN DUID is made up of the following:
+
+| Attribute         | Value            | Remarks                                   |
+| ----------------- | ---------------- | ----------------------------------------- |
+| DUID type         | `00:02`          | DUID-EN                                   |
+| Enterprise number | `00:00:0d:e9`    | 3561                                      |
+| Identifier        | `<OUI>-<SERIAL>` | ASCII string e.g. `AABBCC-12345678901234` |
+
+`<OUI>` is the first six (6) hex digits of the {{ page.meta.ont }} __MAC address__ in uppercase without separators,
+and `<SERIAL>` is its serial number, <ins>not</ins> the ONT ID.
+
+!!! warning "The DUID sent by the {{ page.meta.ont }}'s LAN DHCPv6 server is different and will <ins>NOT</ins> work"
+
+To generate the DUID, <ins>replace</ins> `<OUI>-<SERIAL>` and execute the following command from a Linux, macOS, or
+FreeBSD shell:
+
+``` sh
+printf '%s' '<OUI>-<SERIAL>' | od -An -v -tx1 | tr -d ' \n' | sed 's/../:&/g;s/^/00:02:00:00:0d:e9/'
+```
+
+``` sh title="Example: AABBCC-12345678901234"
+00:02:00:00:0d:e9:41:41:42:42:43:43:2d:31:32:33:34:35:36:37:38:39:30:31:32:33:34
+```
+
+#### :simple-pfsense: pfSense { #ipv6-pfsense data-toc-label="pfSense" }
+
+1. Navigate to __Interfaces > WAN__.
+2. From the __DHCP6 Client Configuration__ section, check __Request only an IPv6 prefix__, select __60__ from the
+   __DHCPv6 Prefix Delegation size__ drop-down, and click __Save__.
+3. To clone the [DUID](#ipv6-duid), navigate to __System > Advanced > Networking__.
+4. From the __DHCP6 DUID__ drop-down, select __Raw DUID__, paste the generated DUID, and click __Save__.
+5. Reboot or reconfigure the WAN interface for the changes to take effect.
+
+!!! note "The saved DUID will start with its length e.g. `1b:00:`, which is expected"
+
+!!! info "Be patient..."
+    With a cloned DUID, it may take several minutes before AT&T responds. Once it does, you should receive the same
+    /60 prefix delegation as the {{ page.meta.ont }}.
+
 {% include 'att-inc-bgw/switch-tips.md' %}
 
 ## Software versions

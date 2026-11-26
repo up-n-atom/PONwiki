@@ -259,6 +259,8 @@ To access the U-Boot console type `admin` at the prompt: `Hit enter to stop auto
   [install]: https://pon.wiki/guides/install-the-8311-community-firmware-on-the-was-110/#supplementary-upgrades
   [8311 community firmware]: https://github.com/djGrrr/8311-was-110-firmware-builder/releases
 
+{% include 'ont/host-interface.md' %}
+
 {% include 'ont/active-cooling.md' %}
 
 [^1]: <https://www.potrontec.com/index/index/list/cat_id/2.html#11-83>

@@ -31,10 +31,21 @@ For more details on accessing this interface, please search your hosts' document
 
 #### Host access
 
+!!! warning "Host readings may be inaccurate"
+    UniFi Network has reported 3.000 V and -inf Rx power for a [WAS-110] plugged into a USW Pro XG 24 PoE, while the
+    [WAS-110] itself reported 3.30 V and -20.7 dBm. If in doubt, check the [optical status](#optical-status) and
+    [voltage status](#voltage-status) from the [WAS-110] instead.
+
 ##### :simple-linux: Linux / :simple-ubiquiti: UniFi OS { #linux-ddmi data-toc-label="Linux" }
 
 ``` sh
 ethtool -m <interface>
+```
+
+##### :simple-freebsd: FreeBSD / :simple-pfsense: pfSense { #freebsd-ddmi data-toc-label="FreeBSD" }
+
+``` sh
+ifconfig -v <interface>
 ```
 
 ##### :simple-mikrotik: MikroTik RouterOS { #mikrotik-routeros-ddmi data-toc-label="MikroTik RouterOS" }
@@ -343,6 +354,9 @@ indicators to pinpoint whether a fault originates with the OLT, the ODN, or your
     An O7 alarm often indicates a "Rogue ONT" that is transmitting light outside of its assigned time slot. This can
     "blind" the OLT port and drop service for every other subscriber on that same PON split.
 
+!!! tip "O7 while plugged into a NIC?"
+    Check the [supply voltage](#supply-voltage) before plugging the fiber cable back in.
+
 To view real-time faults and begin remediation, execute one of the following procedures:
 
 ``` sh title="Example: fiber disconnect/broken"
@@ -618,6 +632,188 @@ host controller and implementation, the interface may enter a power saving state
 
 1. Replace spf`X` with the port name/number.
 
+### Unqualified module
+
+Intel Ethernet 700 series adapters (e.g., X710) have firmware that checks for Intel qualified modules[^8], which the
+[WAS-110] is not. The check can't be disabled by the driver.
+
+If you see the following output in your system log, the adapter has flagged the [WAS-110] as unqualified:
+
+=== ":simple-freebsd: FreeBSD / :simple-pfsense: pfSense"
+
+    ``` sh
+    ixl0: Link failed because an unqualified module was detected!
+    ```
+
+=== ":simple-linux: Linux"
+
+    ``` sh
+    i40e 0000:01:00.0: Rx/Tx is disabled on this device because an unsupported SFP module type was detected.
+    ```
+
+The message is only logged while the link is down and does not always mean the [WAS-110] won't work. As Intel puts it,
+"other modules may function but are not validated by Intel"[^9]. If the link comes up and the [WAS-110] is accessible,
+the message can be ignored.
+
+If the link never comes up, check the [link speed](#link-speed) first. Otherwise, the adapter is likely refusing the
+[WAS-110], and it should be moved to a media converter or network switch port instead.
+
+!!! warning "Unlocking the adapter has been tested but <ins>NOT</ins> vetted"
+    Tools such as [xl710-unlocker](https://github.com/bibigon812/xl710-unlocker) unlock X710 and XL710 adapters for
+    use with any SFP+ module by modifying the adapter's non-volatile memory (NVM). It has been tested, but the tool
+    itself has not been vetted, so proceed with caution and at your own risk.
+
+### Supply voltage
+
+The [WAS-110] can draw up to 3 W[^6], which is more than SFP+ power class 3 (2 W)[^5] and more than some host
+interfaces are able to supply. An under-powered [WAS-110] may enter O7 (emergency stop)[^6] while its host link stays
+up and the web UI remains accessible.
+
+!!! warning "Plugging the WAS-110 into a NIC is discouraged"
+    NICs have been known to under-power the [WAS-110] and cause it to enter O7[^6]. A media converter or network
+    switch port is recommended instead.
+
+    Not all NIC and ONT stick combinations have been tested. To check your own, follow the
+    [voltage status](#voltage-status) steps.
+
+#### Voltage specifications
+
+| &nbsp;             | Min.  | Max.  | Unit |
+| ------------------ | ----- | ----- | ---- |
+| __Supply voltage__ | 3.135 | 3.465 | V    |
+
+!!! note "Voltage and wattage are two different things"
+    Even if the voltage is within spec, the host interface may still be unable to supply the wattage the [WAS-110]
+    requires. The [WAS-110] draws the most power under load[^6], so evaluate the voltage again during a speed test.
+
+#### Voltage status
+
+To determine if the supply voltage is within [spec](#voltage-specifications)[^5], execute one of the following
+procedures:
+
+=== "8311 firmware"
+
+    <h5>from the Web UI</h5>
+
+    1. Navigate to <https://192.168.11.1/cgi-bin/luci/admin/status/overview> and, if asked, input your *root* password.
+    2. From the __PON Status__ section, evaluate __Module Voltage__ is within [spec](#voltage-specifications).
+
+    <h5>from the Linux shell</h5>
+
+    Look for __Module voltage__ in the output.
+
+    ``` sh
+    ethtool -m pon0
+    ```
+
+    <h5>from the JSON endpoint</h5>
+
+    Version 2.8.2 and later report `module_voltage` from the JSON endpoint at
+    <https://192.168.11.1/cgi-bin/luci/8311/metrics>.
+
+=== "Azores firmware"
+
+    <h5>from the Linux shell</h5>
+
+    !!! info "The voltage is reported in millivolts (mV)"
+
+    ``` sh
+    i2c_cmd show optical
+    ```
+
+#### Host readings
+
+The following readings were taken with the same [WAS-110] and are only a point of reference. Be sure to check your
+own host interface.
+
+A :check_mark: means the voltage was within [spec](#voltage-specifications). It does not mean the host interface is
+able to supply enough wattage.
+
+| Host                       | Interface | Voltage        | &nbsp;       |
+| -------------------------- | --------- | -------------- | ------------ |
+| Chelsio T520-CR            | SFP+      | 2.77 to 2.83 V | :x:          |
+| Intel X710                 | SFP+      | 3.25 to 3.26 V | :check_mark: |
+| Ubiquiti USW Pro XG 24 PoE | SFP28     | 3.30 V         | :check_mark: |
+
+!!! failure "The Chelsio T520-CR is <ins>NOT</ins> recommended"
+    It has been measured supplying a voltage below [spec](#voltage-specifications), which may cause the [WAS-110] to
+    enter O7.
+
+#### Host solutions { #supply-voltage-host-solutions data-toc-label="Host solutions" }
+
+Unfortunately, the supply voltage can't be adjusted. Move the [WAS-110] to another host interface, such as a network
+switch or media converter[^6], and check the [voltage status](#voltage-status) again.
+
+### Throughput
+
+If your speed test results are lower than expected, the host may be the cause.
+
+#### Host solutions { #throughput-host-solutions data-toc-label="Host solutions" }
+
+##### :simple-pfsense: pfSense (Chelsio cxgbe) { #pfsense-cxgbe data-toc-label="pfSense (Chelsio cxgbe)" }
+
+The `cxgbe` driver enables rate limiting by default[^7]. With a Chelsio T520-CR, this limited routed traffic to
+roughly 500 Mbps in both directions, while the CPU was mostly idle and the interface counters showed no errors.
+
+!!! warning "The Chelsio T520-CR is <ins>NOT</ins> recommended"
+    Disabling rate limiting does not resolve its low [supply voltage](#host-readings). Avoid plugging the [WAS-110]
+    into the T520-CR.
+
+To check if rate limiting is enabled, execute the following commands:
+
+``` sh
+ifconfig cxl0 #(1)!
+sysctl dev.t5nex.0.niccaps
+sysctl dev.cxl.0.txq | grep -E 'mp_ring.(stalls|dropped)'
+```
+
+1. Replace `cxl` and `t5nex` (T5) with `cxgbe` and `t4nex` (T4) or `cc` and `t6nex` (T6) to match your adapter.
+
+Rate limiting is enabled if `TXRTLMT` is listed in the interface options and `niccaps` includes `ETHOFLD`. The
+`mp_ring` stall and drop counters will also climb during a speed test.
+
+``` sh title="Example: rate limiting enabled"
+dev.t5nex.0.niccaps: 41<NIC,ETHOFLD>
+```
+
+To disable rate limiting, add the following loader tunable to `/boot/loader.conf.local` and reboot:
+
+``` sh
+hw.cxgbe.niccaps_allowed="1"
+```
+
+After the reboot, `niccaps` should read `1<NIC>` and `TXRTLMT` should no longer be listed.
+
+##### :simple-pfsense: pfSense (flow control) { #pfsense-flow-control data-toc-label="pfSense (flow control)" }
+
+If the router is connected to a network switch with flow control enabled, the switch's pause frames may stall the
+router's transmit queue and cause packet drops.
+
+For example, take a 24-port switch with a mix of 10 Gbps and 2.5 Gbps devices. When a 10 Gbps device sends a large
+file to a 2.5 Gbps device, the slower port can't keep up and the switch sends pause frames back to the faster port to
+slow it down. The router is in the same position whenever it sends traffic to a slower device, e.g. when routing
+between VLANs or during a download from the internet. While its port is paused, everything else leaving that port has
+to wait as well.
+
+To prevent this behaviour, disable flow control on the router's interface(s) connected to the switch.
+
+The following applies to Intel `ix` interfaces. For other drivers, refer to the pfSense documentation[^7].
+
+!!! warning "The following command disables flow control <ins>temporarily</ins> until the next reboot"
+    The driver default of `3` (full flow control) may also be restored when interfaces are re-assigned.
+
+``` sh
+sysctl dev.ix.0.fc=0 #(1)!
+```
+
+1. Replace `ix.0` with your interface e.g. `ix.1`.
+
+To permanently disable flow control, add the following loader tunable to `/boot/loader.conf.local` and reboot:
+
+``` sh
+hw.ix.flow_control="0"
+```
+
 ## Common issues & workarounds
 
 ### Nokia OLT (ALCL)
@@ -684,3 +880,7 @@ omci_pipe.sh meadg 131 0 1 | awk '/41 4C 43 4C/ {print "Nokia OLT"; id=1} /20 20
 [^3]: <https://www.linux.org/docs/man8/ethtool.html>
 [^4]: <https://en.wikipedia.org/wiki/Small_Form-factor_Pluggable#Signals>
 [^5]: [SFF-8419](https://members.snia.org/document/dl/25880)
+[^6]: <https://akhamar.github.io/orange-xgs-pon/30_was_onu.html>
+[^7]: <https://docs.netgate.com/pfsense/en/latest/hardware/tune.html>
+[^8]: <https://man.freebsd.org/cgi/man.cgi?query=ixl&sektion=4>
+[^9]: <https://docs.kernel.org/networking/device_drivers/ethernet/intel/i40e.html>

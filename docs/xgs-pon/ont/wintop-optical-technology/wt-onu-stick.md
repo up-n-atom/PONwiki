@@ -79,5 +79,7 @@ To access the U-boot console hold ++esc++ on device hot plug to abort autoboot. 
   [install]: https://pon.wiki/guides/install-the-8311-community-firmware-on-the-was-110/#supplementary-upgrades
   [8311 community firmware]: https://github.com/djGrrr/8311-was-110-firmware-builder/releases
 
+{% include 'ont/host-interface.md' %}
+
 [^1]: <https://www.enwintoptec.com/>
 [^2]: <https://www.wintoptec.com/post/805.html>
