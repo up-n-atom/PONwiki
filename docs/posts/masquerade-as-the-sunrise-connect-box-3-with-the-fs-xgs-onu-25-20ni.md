@@ -41,10 +41,9 @@ operator: Sunrise
     :   No. It is an SFU ONT (not an HGU) that converts Ethernet to PON; it does not provide Layer 7 gateway functions
         (NAT, DHCP, etc.) A separate gateway/router is required for internet access.
 
-    __Is the serial number the same as on the Home Fiber Box 2?__
+    __Does the XGS-ONU-25-20NI support VEIP?__
 
-    :   No. On the Home Fiber Box 2 the OLT authenticates the `SMBS`&hellip; value and not the `YCEC`&hellip; one. On the
-        {{ page.meta.ont }}, the value to use is the one labelled __ONU Serial Number__, which begins `YCEC`&hellip;.
+    :   No. The XGS-ONU-25-20NI does not support VEIP and will ONLY authenticate with an OLT over PPTP.
 
 ## Purchase Hardware
 
@@ -82,11 +81,17 @@ To masquerade as the {{ page.meta.ont }}, you will need its __ONU Serial Number_
 __ONU Serial Number__ is shown on the __Info__ page of its web interface at `http://192.168.1.1`, and the WAN MAC on its
 status page.
 
-!!! tip "The ONU Serial Number may not be labelled"
-    The label below only has `MAC:` and `S/N:` fields, and its `S/N:` begins `YAAS`&hellip;. Do not confuse it with the
-    __ONU Serial Number__ from the __Info__ page, which begins `YCEC`&hellip;.
+=== "Mislabelled Serial"
 
-![{{ page.meta.ont }} label]({{ page.meta.slug }}/{{ page.meta.ont | lower | replace(" ", "_") }}_label.webp){ class="nolightbox" }
+    !!! tip "The ONU Serial Number may not be labelled"
+        The label below only has `MAC:` and `S/N:` fields, and its `S/N:` begins `YAAS`&hellip;. Do not confuse it with the
+        __ONU Serial Number__ from the __Info__ page, which begins `YCEC`&hellip;.
+
+    ![{{ page.meta.ont }} label]({{ page.meta.slug }}/{{ page.meta.ont | lower | replace(" ", "_") }}_label.webp){ class="nolightbox" }
+
+=== "SMBS Serial"
+
+    ![{{ page.meta.ont }} label]({{ page.meta.slug }}/{{ page.meta.ont | lower | replace(" ", "_") }}_label_alt.webp){ class="nolightbox" }
 
 1.  Log in over telnet and open the `misc` menu.
 
@@ -102,14 +107,25 @@ status page.
 
 2.  Set the serial number and the [Registration ID].
 
-    !!! note "Reminder"
-        Replace `YCEC1A2B3C4D` and `314132423343344435453646` with the values from your own {{ page.meta.ont }}.
+    === "Mislablled Serial"
 
-    ``` sh
-    #ONT/system/misc> eqsn set "YCEC1A2B3C4D"
-    #ONT/system/misc> xgspon_regid set 314132423343344435453646
-    ```
+        !!! note "Reminder"
+            Replace `YCEC1A2B3C4D` and `314132423343344435453646` with the values from your own {{ page.meta.ont }}.
 
+        ``` sh
+        #ONT/system/misc> eqsn set "YCEC1A2B3C4D"
+        #ONT/system/misc> xgspon_regid set 314132423343344435453646
+        ```
+
+    === "SMBS Serial"
+
+        !!! note "Reminder"
+            Replace `SMBS09768311` and `314132423343344435453646` with the values from your own {{ page.meta.ont }}.
+
+        ``` sh
+        #ONT/system/misc> eqsn set "SMBS09768311"
+        #ONT/system/misc> xgspon_regid set 314132423343344435453646
+        ```
     !!! warning "The telnet login changes immediately"
         After `eqsn set`, the next telnet session needs the new serial number and the password derived from it.
 
